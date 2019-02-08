@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1671.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #12222e; -webkit-text-stroke: #12222e}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #c3296a; -webkit-text-stroke: #c3296a}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #12222e; -webkit-text-stroke: #12222e; min-height: 14.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #f76728; -webkit-text-stroke: #f76728}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #677f94; -webkit-text-stroke: #677f94}
+    span.s1 {font-kerning: none; background-color: #ffffff}
+    span.s2 {font-kerning: none; color: #c3296a; background-color: #ffffff; -webkit-text-stroke: 0px #c3296a}
+    span.s3 {font-kerning: none; color: #236bbf; background-color: #ffffff; -webkit-text-stroke: 0px #236bbf}
+    span.s4 {font-kerning: none; color: #f76728; background-color: #ffffff; -webkit-text-stroke: 0px #f76728}
+    span.s5 {font-kerning: none; color: #12222e; background-color: #ffffff; -webkit-text-stroke: 0px #12222e}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;meta charset=</span><span class="s2">'utf-8'</span><span class="s1"> /&gt;</span></p>
+<p class="p1"><span class="s1">&lt;title&gt;Extrude polygons </span><span class="s3"><b>for</b></span><span class="s1"> </span><span class="s4">3</span><span class="s1">D indoor mapping&lt;/title&gt;</span></p>
+<p class="p2"><span class="s5">&lt;meta name=</span><span class="s1">'viewport'</span><span class="s5"> content=</span><span class="s1">'initial-scale=1,maximum-scale=1,user-scalable=no'</span><span class="s5"> /&gt;</span></p>
+<p class="p2"><span class="s5">&lt;script src=</span><span class="s1">'https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'</span><span class="s5">&gt;&lt;/script&gt;</span></p>
+<p class="p2"><span class="s5">&lt;link href=</span><span class="s1">'https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css'</span><span class="s5"> rel=</span><span class="s1">'stylesheet'</span><span class="s5"> /&gt;</span></p>
+<p class="p1"><span class="s1">&lt;style&gt;</span></p>
+<p class="p1"><span class="s1">body { margin:</span><span class="s4">0</span><span class="s1">; padding:</span><span class="s4">0</span><span class="s1">; }</span></p>
+<p class="p1"><span class="s1">#map { position:absolute; top:</span><span class="s4">0</span><span class="s1">; bottom:</span><span class="s4">0</span><span class="s1">; width:</span><span class="s4">100</span><span class="s1">%; }</span></p>
+<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;div id=</span><span class="s2">'map'</span><span class="s1">&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p2"><span class="s5">mapboxgl.accessToken = </span><span class="s1">'pk.eyJ1IjoianVsaWVucmljaGFyZCIsImEiOiJjaXBpYWVjcGcwMDNmdmJrd3NmOW5yc2IxIn0.B6a6wxJn_XYYLP8j23nyrg'</span><span class="s5">;</span></p>
+<p class="p1"><span class="s3"><b>var</b></span><span class="s1"> map = </span><span class="s3"><b>new</b></span><span class="s1"> mapboxgl.Map({</span></p>
+<p class="p1"><span class="s1">container: </span><span class="s2">'map'</span><span class="s1">,</span></p>
+<p class="p2"><span class="s5">style: </span><span class="s1">'mapbox://styles/mapbox/streets-v9'</span><span class="s5">,</span></p>
+<p class="p4"><span class="s5">center: [-</span><span class="s1">87.61694</span><span class="s5">, </span><span class="s1">41.86625</span><span class="s5">],</span></p>
+<p class="p1"><span class="s1">zoom: </span><span class="s4">15.99</span><span class="s1">,</span></p>
+<p class="p1"><span class="s1">pitch: </span><span class="s4">40</span><span class="s1">,</span></p>
+<p class="p1"><span class="s1">bearing: </span><span class="s4">20</span></p>
+<p class="p1"><span class="s1">});</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">map.on(</span><span class="s2">'load'</span><span class="s1">, </span><span class="s3"><b>function</b></span><span class="s1">() {</span></p>
+<p class="p1"><span class="s1">map.addLayer({</span></p>
+<p class="p2"><span class="s1">'id'</span><span class="s5">: </span><span class="s1">'room-extrusion'</span><span class="s5">,</span></p>
+<p class="p2"><span class="s1">'type'</span><span class="s5">: </span><span class="s1">'fill-extrusion'</span><span class="s5">,</span></p>
+<p class="p2"><span class="s1">'source'</span><span class="s5">: {</span></p>
+<p class="p5"><span class="s1">// GeoJSON Data source used in vector tiles, documented at</span></p>
+<p class="p5"><span class="s1">// https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d</span></p>
+<p class="p2"><span class="s1">'type'</span><span class="s5">: </span><span class="s1">'geojson'</span><span class="s5">,</span></p>
+<p class="p2"><span class="s1">'data'</span><span class="s5">: </span><span class="s1">'https://docs.mapbox.com/mapbox-gl-js/assets/indoor-3d-map.geojson'</span></p>
+<p class="p1"><span class="s1">},</span></p>
+<p class="p2"><span class="s1">'paint'</span><span class="s5">: {</span></p>
+<p class="p5"><span class="s1">// See the Mapbox Style Specification for details on data expressions.</span></p>
+<p class="p5"><span class="s1">// https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p5"><span class="s1">// Get the fill-extrusion-color from the source 'color' property.</span></p>
+<p class="p2"><span class="s1">'fill-extrusion-color'</span><span class="s5">: [</span><span class="s1">'get'</span><span class="s5">, </span><span class="s1">'color'</span><span class="s5">],</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p5"><span class="s1">// Get fill-extrusion-height from the source 'height' property.</span></p>
+<p class="p2"><span class="s1">'fill-extrusion-height'</span><span class="s5">: [</span><span class="s1">'get'</span><span class="s5">, </span><span class="s1">'height'</span><span class="s5">],</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p5"><span class="s1">// Get fill-extrusion-base from the source 'base_height' property.</span></p>
+<p class="p2"><span class="s1">'fill-extrusion-base'</span><span class="s5">: [</span><span class="s1">'get'</span><span class="s5">, </span><span class="s1">'base_height'</span><span class="s5">],</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p5"><span class="s1">// Make extrusions slightly opaque for see through indoor walls.</span></p>
+<p class="p2"><span class="s1">'fill-extrusion-opacity'</span><span class="s5">: </span><span class="s4">0.5</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">});</span></p>
+<p class="p1"><span class="s1">});</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
