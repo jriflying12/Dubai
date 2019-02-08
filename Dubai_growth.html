@@ -56,19 +56,6 @@ map.on('load', function() {
  'fill-extrusion-opacity': 1
  }
 });
-map.addLayer({
-'id': ‘dubai_geo’,
-'type': 'fill',
-'source': {
-'type': 'geojson',
-'data': 'https://jriflying12.github.io/Dubai/dubai.geojson'
-},
-'layout': {},
-'paint': {
-'fill-color': '#088',
-'fill-opacity': 0.8
-}
-});
 map.on('click', 'dubai', function (e) {
 new mapboxgl.Popup()
 .setLngLat(e.lngLat)
