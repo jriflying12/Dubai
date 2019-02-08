@@ -40,10 +40,13 @@ map.on('load', function() {
 'type': 'geojson',
 'data': 'https://jriflying12.github.io/Dubai/dubai.geojson'
 },
-'layout': {},
+'layout': {
+"line-join": "round",
+"line-cap": "round"
+},
 'paint': {
 'line-color': '#000000',
-'lien-width': 8
+'line-width': 8
 }
 });
   map.addLayer({
