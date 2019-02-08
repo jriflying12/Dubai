@@ -62,6 +62,19 @@ new mapboxgl.Popup()
 .setHTML(e.features[0].properties.name)
 .addTo(map);
 });
+map.addLayer({
+'id': 'maine',
+'type': 'fill',
+'source': {
+'type': 'geojson',
+'data': 'data':'https://jriflying12.github.io/Dubai/dubai.geojson'
+},
+'layout': {},
+'paint': {
+'fill-color': '#088',
+'fill-opacity': 0.8
+}
+});
 });
 map.addControl(new mapboxgl.NavigationControl());
 </script>
