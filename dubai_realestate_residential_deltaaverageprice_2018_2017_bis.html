@@ -72,15 +72,7 @@
                         e.target.setStyle(e.target.feature.properties.highlight);},
                     click: function(e) {
                         map_41ea0ea35c204fcdadde17383206469d.fitBounds(e.target.getBounds());
-                        //popupWindow = window.open('res_2018/res_'+e.target.feature.properties.area+'.html','_self','height=400,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');//alert(e.target.feature.properties.area)
-                        $(this).popover({ 
-                            placement : 'right',
-                            container : 'body',
-                            html : true,
-                                content: function() {
-                                    return 'res_2018/res_'+e.target.feature.properties.area+'.html';
-                                }
-                        }
+                        popupWindow = window.open('res_2018/res_'+e.target.feature.properties.area+'.html','_self','height=400,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');//alert(e.target.feature.properties.area)
                     });
             };
         
