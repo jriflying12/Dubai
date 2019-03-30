@@ -75,7 +75,7 @@ map.on('load', function() {
 map.on('click', 'dubai', function (e) {
 new mapboxgl.Popup()
 .setLngLat(e.lngLat)
-.setHTML(e.features[0].properties.name+'\n, churn: '+e.features[0].properties.median_price +' %')
+.setHTML('<h1>'+e.features[0].properties.name+'</h1><table><tr><th>Year</th><th>Average Price</th></tr><tr><td>2018</td><td>2017</td></tr><tr><td>'+e.features[0].properties.median_price+'</td><td>'+e.features[0].properties.median_price_old'+</td></tr></table>')
 .addTo(map);
 });
 });
