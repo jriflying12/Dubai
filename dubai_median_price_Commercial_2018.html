@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta charset='utf-8' />
+<title>Median Price Sale change (2018)</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=yes' />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+<style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+<style>
+.mapboxgl-popup {
+  max-width: 300px;
+}
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+</style>
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoianVsaWVucmljaGFyZCIsImEiOiJjaXBpYWVjcGcwMDNmdmJrd3NmOW5yc2IxIn0.B6a6wxJn_XYYLP8j23nyrg';
+var map = new mapboxgl.Map({
+ container: 'map',
+ style: 'mapbox://styles/julienrichard/cjrvpus351myv1fp3vgedmvzf',
+ center: [55.2, 25.05],
+ zoom: 11,
+ pitch: 40,
+ bearing: 20
+});
+map.on('load', function() {
+  map.addLayer({
+'id': 'dubai_contour',
+'type': 'line',
+'source': {
+'type': 'geojson',
+'data': 'https://jriflying12.github.io/Dubai/dubai.geojson'
+},
+'layout': {
+"line-join": "round",
+"line-cap": "round"
+},
+'paint': {
+'line-color': '#000000',
+'line-width': 4
+}
+});
+  map.addLayer({
+  'id': 'dubai',
+  'type': 'fill-extrusion',
+   'source': {
+   // GeoJSON Data source used in vector tiles, documented at
+   // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
+   'type': 'geojson',
+   //'data': 'https://docs.mapbox.com/mapbox-gl-js/assets/indoor-3d-map.geojson'
+    'data':'https://jriflying12.github.io/Dubai/dubai_median_price_Commercial_2018.geojson'
+   },
+ 'paint': {
+ // See the Mapbox Style Specification for details on data expressions.
+ // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions
+ // Get the fill-extrusion-color from the source 'color' property.
+ 'fill-extrusion-color': ['get', 'color'],
+ // Get fill-extrusion-height from the source 'height' property.
+ 'fill-extrusion-height': ['get', 'height'],
+ // Get fill-extrusion-base from the source 'base_height' property.
+ 'fill-extrusion-base': ['get', 'base_height'],
+ // Make extrusions slightly opaque for see through indoor walls.
+ 'fill-extrusion-opacity': 1
+ }
+});
+map.on('click', 'dubai', function (e) {
+new mapboxgl.Popup({ offset: [0, -15] })
+.setLngLat(e.lngLat)
+.setHTML('<h1>'+e.features[0].properties.name+'</h1><table><tr><th><b>year</b></th><th><b>Median Price (AED)</b></th></tr><tr><td>2018</td><td>'+e.features[0].properties.median_price+'</td></tr><tr><td>2017</td><td>'+e.features[0].properties.median_price_old+'</td></tr></table>')
+.addTo(map);
+});
+});
+map.addControl(new mapboxgl.NavigationControl());
+</script>
+</body>
+</html>
