@@ -57,7 +57,7 @@ map.on('load', function() {
    // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
    'type': 'geojson',
    //'data': 'https://docs.mapbox.com/mapbox-gl-js/assets/indoor-3d-map.geojson'
-    'data':'https://jriflying12.github.io/Dubai/dubai_churn_res_201902.geojson'
+    'data':'https://jriflying12.github.io/Dubai/dubai_churn_Residential_201902.geojson'
    },
  'paint': {
  // See the Mapbox Style Specification for details on data expressions.
@@ -75,7 +75,7 @@ map.on('load', function() {
 map.on('click', 'dubai', function (e) {
 new mapboxgl.Popup()
 .setLngLat(e.lngLat)
-.setHTML(e.features[0].properties.name+'\n, churn: '+e.features[0].properties.churn +' %')
+.setHTML('<h1>'+e.features[0].properties.name+'</h1><br>Churn: '+e.features[0].properties.churn +' %</br>')
 .addTo(map);
 });
 });
