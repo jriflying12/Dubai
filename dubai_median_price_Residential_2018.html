@@ -76,15 +76,7 @@ map.on('click', 'dubai', function (e) {
 new mapboxgl.Popup({ offset: [0, -15] })
 .setLngLat(e.lngLat)
 .setHTML('<h1>'+e.features[0].properties.name+'</h1><table><tr><th><b>year</b></th><th><b>Median Price (AED)</b></th></tr><tr><td>2018</td><td>'+e.features[0].properties.median_price+'</td></tr><tr><td>2017</td><td>'+e.features[0].properties.median_price_old+'</td></tr></table>')
-
-setContent(Popup.content {
-color: #F3F3DD;
-background-color: #F3F3DD;
-border-color: #228B22;
-max-width: 250px;
-box-shadow: 3px 3px 2px #8B5D33;
-font-family: 'Oswald';})
-
+.setContent(Popup.content {color: #F3F3DD;background-color: #F3F3DD;border-color: #228B22;max-width: 250px;box-shadow: 3px 3px 2px #8B5D33;font-family: 'Oswald';})
 .addTo(map);
 });
 });
