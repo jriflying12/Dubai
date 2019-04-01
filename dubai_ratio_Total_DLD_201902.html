@@ -34,22 +34,6 @@ var map = new mapboxgl.Map({
 });
 map.on('load', function() {
   map.addLayer({
-'id': 'dubai_contour',
-'type': 'line',
-'source': {
-'type': 'geojson',
-'data': 'https://jriflying12.github.io/Dubai/dubai.geojson'
-},
-'layout': {
-"line-join": "round",
-"line-cap": "round"
-},
-'paint': {
-'line-color': '#000000',
-'line-width': 4
-}
-});
-  map.addLayer({
   'id': 'dubai',
   'type': 'fill-extrusion',
    'source': {
@@ -71,6 +55,22 @@ map.on('load', function() {
  // Make extrusions slightly opaque for see through indoor walls.
  'fill-extrusion-opacity': 1
  }
+});
+map.addLayer({
+'id': 'dubai_contour',
+'type': 'line',
+'source': {
+'type': 'geojson',
+'data': 'https://jriflying12.github.io/Dubai/dubai.geojson'
+},
+'layout': {
+"line-join": "round",
+"line-cap": "round"
+},
+'paint': {
+'line-color': '#000000',
+'line-width': 4
+}
 });
 map.on('click', 'dubai', function (e) {
 new mapboxgl.Popup()
