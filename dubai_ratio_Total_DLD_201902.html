@@ -75,7 +75,7 @@ map.addLayer({
 map.on('click', 'dubai', function (e) {
 new mapboxgl.Popup()
 .setLngLat(e.lngLat)
-.setHTML('<h1>'+e.features[0].properties.name+'</h1><br>ratio to capacity: '+e.features[0].properties.ratio +' %</br>')
+.setHTML('<h1>'+e.features[0].properties.name+'</h1><br>Occupancy: '+e.features[0].properties.ratio +' %</br>')
 .addTo(map);
 });
 });
