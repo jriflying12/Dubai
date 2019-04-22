@@ -75,7 +75,7 @@ map.on('load', function() {
 map.on('click', 'dubai', function (e) {
 new mapboxgl.Popup()
 .setLngLat(e.lngLat)
-.setHTML('<h1>'+e.features[0].properties.name+'</h1><br>Balance: '+e.features[0].properties.balance +' households</br>')
+.setHTML('<h1>'+e.features[0].properties.common_name+'</h1><p>'+e.features[0].properties.value+'</p>')
 .addTo(map);
 });
 });
