@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset='utf-8' />
-<title>Volume Sale change (2018)</title>
+<title>Number of Land Sale (2017)</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=yes' />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
@@ -75,7 +75,7 @@ map.on('load', function() {
 map.on('click', 'dubai', function (e) {
 new mapboxgl.Popup({ offset: [0, -15] })
 .setLngLat(e.lngLat)
-.setHTML('<h1>'+e.features[0].properties.name+'</h1><table><tr><th><b>year</b></th><th><b>Area (sq.m)</b></th></tr><tr><td>2018</td><td>'+e.features[0].properties.area+'</td></tr><tr><td>2017</td><td>'+e.features[0].properties.area_old+'</td></tr></table>')
+.setHTML('<h1>'+e.features[0].properties.name+'</h1><br>Churn: '+e.features[0].properties.value +' %</br>')
 .addTo(map);
 });
 });
